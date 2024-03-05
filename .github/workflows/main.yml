@@ -30,14 +30,17 @@ jobs:
     - name: SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@master
       with:
+        projectBaseDir: /
         args: >
           -Dsonar.organization=brishi-bits
           -Dsonar.projectKey=brishi-bits_Bits-DevOps-Assignment-1
           -Dsonar.projectName=Bits-DevOps-Assignment-1          
-          -Dsonar.sources=app/                    
-          -Dsonar.tests=tests/
+          -Dsonar.sources=my_flask_app/app/                    
+          -Dsonar.tests=my_flask_app/tests/
           -Dsonar.language=py
           -Dsonar.verbose=true
+          -Dsonar.host.url=https://sonarcloud.io
+          -Dsonar.login=$SONAR_TOKEN
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
