@@ -35,8 +35,7 @@ jobs:
           -Dsonar.organization=brishi-bits
           -Dsonar.projectKey=brishi-bits_Bits-DevOps-Assignment-1
           -Dsonar.projectName=Bits-DevOps-Assignment-1          
-          -Dsonar.sources=./app                    
-          -Dsonar.tests=./tests
+          -Dsonar.sources=./app                              
           -Dsonar.language=py
           -Dsonar.verbose=true          
       env:
