@@ -27,17 +27,19 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+
+  sonarcloud:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
     - name: SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@master
       with:
-        projectBaseDir: /
         args: >
-          -Dsonar.organization=brishi-bits
-          -Dsonar.projectKey=brishi-bits_Bits-DevOps-Assignment-1
-          -Dsonar.projectName=Bits-DevOps-Assignment-1                                                
-          -Dsonar.language=py
-          -Dsonar.sourceEncoding=UTF-8
-          -Dsonar.verbose=true          
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+         -Dsonar.projectKey=brishi-bits_Bits-DevOps-Assignment-1
+         -Dsonar.organization=brishi-bits
+         -Dsonar.sources=.
+         -Dsonar.host.url=https://sonarcloud.io
+          env:
+           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+    
