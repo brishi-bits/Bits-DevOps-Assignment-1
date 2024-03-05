@@ -36,7 +36,7 @@ jobs:
           -Dsonar.projectKey=brishi-bits_Bits-DevOps-Assignment-1
           -Dsonar.projectName=Bits-DevOps-Assignment-1                                                
           -Dsonar.language=py
-          _Dsonar.sourceEncoding=UTF-8
+          -Dsonar.sourceEncoding=UTF-8
           -Dsonar.verbose=true          
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
