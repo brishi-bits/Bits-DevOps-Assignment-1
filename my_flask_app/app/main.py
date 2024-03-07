@@ -1,13 +1,23 @@
 from flask import Flask, request, jsonify
 from pymongo import MongoClient
 from bson.objectid import ObjectId
+from configparser import ConfigParser
+import os
 
 app = Flask(__name__)
 
-# MongoDB connection URL
-MONGODB_URL = "mongodb+srv://vanidevi:GBnSSXkTmPKs2EtQ@cluster0.rupgbkv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+# Construct the path to the config file
+current_dir = os.path.dirname(os.path.abspath(__file__))
+config_file_path = os.path.join(current_dir, 'config.ini')
 
+parser = ConfigParser()
+parser.read(config_file_path)
+
+MONGODB_URL = parser.get('MongoDB', 'MONGODB_URL')
+
+print(f"MONGODB_URL_Rishi: '{MONGODB_URL}'")
 client = MongoClient(MONGODB_URL)
+
 db = client.get_database("DATABASE1")
 recipes_collection = db['recipes']
 
