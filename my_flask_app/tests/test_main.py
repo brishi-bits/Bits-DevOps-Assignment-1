@@ -37,3 +37,14 @@ def test_recipes_id(client):
     assert recipe_id["name"] == "Chicken Tikka Masala"
     assert recipe_id["servings"] == 8        
     assert response_id.status_code == 200
+
+def test_create_recipe(client):    
+    new_recipe_data = {
+        "name": "Chocolate Cake",
+        "ingredients": ["1 cup sugar", "2 cups flour", "1 cup water", "2 eggs", "1 tbsp chocolate"],
+        "instructions": "Mix ingredients, bake for 45 minutes at 350 degrees."
+    }    
+    response = client.post('/recipes', json=new_recipe_data)
+    data = json.loads(response.data)    
+    assert response.status_code == 201
+    assert data['message'] == "Recipe created successfully"
