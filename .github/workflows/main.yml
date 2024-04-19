@@ -73,8 +73,13 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-    - name: Build Docker image
-      run: docker build -t brishi1022/assignmentpushfromgithub:latest .
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
 
-    - name: Push Docker image to Docker Hub
-      run: docker push brishi1022/assignmentpushfromgithub:latest
+    - name: Build and push
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        file: ./Dockerfile
+        push: true
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/assignmentpushfromgithub:latest
