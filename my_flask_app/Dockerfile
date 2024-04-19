@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Install any needed packages specified in requirements.txt
-RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+RUN pip install --no-cache-dir --upgrade -r ./requirements.txt
 
 # Expose the port that Flask is running on
 EXPOSE 5000
@@ -21,4 +21,4 @@ ENV MONGO_PORT=27017
 RUN pytest
 
 # Run the Flask application when the container launches
-CMD ["python", "app.py"]
+CMD ["python", "app/main.py"]

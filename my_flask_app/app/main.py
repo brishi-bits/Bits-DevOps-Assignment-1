@@ -67,4 +67,4 @@ def delete_recipe(recipe_id):
         return jsonify({"message": f"Recipe with id {recipe_id} deleted successfully"}), 202
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)
