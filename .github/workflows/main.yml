@@ -74,7 +74,7 @@ jobs:
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
     - name: Build Docker image
-      run: docker build -t brishi1022/AssignmentPushFromGitHub:latest .
+      run: docker build -t brishi1022/assignmentpushfromgithub:latest .
 
     - name: Push Docker image to Docker Hub
-      run: docker push brishi1022/AssignmentPushFromGitHub:latest
+      run: docker push brishi1022/assignmentpushfromgithub:latest
