@@ -80,6 +80,6 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         context: .
-        file: ./Dockerfile
+        file: ./my_flask_app/Dockerfile
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/assignmentpushfromgithub:latest
