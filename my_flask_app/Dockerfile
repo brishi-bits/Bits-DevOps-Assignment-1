@@ -6,6 +6,7 @@ WORKDIR /app
 
 # Copy the current directory contents into the container at /app
 COPY ./my_flask_app/app/main.py /app/app/
+COPY ./my_flask_app/app/config.ini /app/app/
 COPY . /app
 
 # Install any needed packages specified in requirements.txt
