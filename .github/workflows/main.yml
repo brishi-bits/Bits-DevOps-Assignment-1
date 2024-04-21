@@ -82,4 +82,4 @@ jobs:
         context: .
         file: ./my_flask_app/Dockerfile
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/assignmentpushfromgithub:${GITHUB_RUN_NUMBER}
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/assignmentpushfromgithub:1
